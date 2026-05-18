@@ -25,11 +25,11 @@ A simple Splitwise-style app with React, Express, Supabase, and Gemini-powered p
    - `cd server`
 2. Create a `.env` file based on `.env.example`.
 3. Create Supabase tables using the SQL below in the Supabase SQL editor.
-3. Install dependencies:
+4. Install dependencies:
    - `npm install`
-4. Seed sample data:
+5. Seed sample data:
    - `npm run seed`
-5. Start the API server:
+6. Start the API server:
    - `npm run dev`
 
 ### 2) Frontend
@@ -41,12 +41,32 @@ A simple Splitwise-style app with React, Express, Supabase, and Gemini-powered p
 4. Start the React app:
    - `npm run dev`
 
+### Single-command setup (not automated)
+Run backend and frontend in two terminals. A single combined command is not included yet.
+
 ## Notes
 - Amounts are stored as integers (smallest currency unit).
 - Update `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in `server/.env`.
 - Update `GEMINI_API_KEY` and `GEMINI_MODEL` in `server/.env`.
 - Add `OCR_SPACE_API_KEY` in `server/.env` to enable bill image parsing.
 - Update `VITE_API_URL` if your backend runs elsewhere.
+
+## What works
+- Groups and members
+- Expenses, balances, and settle-up
+- AI parsing with fallback NLP
+- OCR bill parsing (requires OCR.space key)
+- Seed data for quick testing
+
+## What is incomplete or limited
+- No authentication or user accounts
+- AI parsing depends on API quota
+- Bill item extraction is heuristic
+- No file storage for uploaded bill images
+
+## Docs
+- See [ARCHITECTURE.md](ARCHITECTURE.md)
+- See [PROMPTS.md](PROMPTS.md)
 
 ## Supabase Schema (SQL)
 ```sql
